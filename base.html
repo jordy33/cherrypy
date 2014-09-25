@@ -2,60 +2,256 @@
 <html>
    <head>
      <link href="/static/css/base.css" rel="stylesheet">
+     <link href="/static/css/skeleton.css" rel="stylesheet">
+     <link href="/static/css/layout.css" rel="stylesheet">
      <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
      <script type="text/javascript">
        $(document).ready(function() {
 
          $("#select-sql").click(function(e) {
-           $.get("/generator", {"parametro": $("input[name='bleaddress1']").val()})
+           $.get("/generator", {"parametro": $("input[name='bleaddress1']").val(),"para2":1})
             .done(function(string) {
-               $("#the-string").show();
-               $("#the-string input").val(string);
+               $("#block1").show();
+               $("#block1 input").val(string);
             });
            e.preventDefault();
          });
 
          $("#insert-sql").click(function(e) {
-           $.post("/generator", {"parametro": $("input[name='bleaddress1']").val()})
+             $.post("/generator", {"parametro": $("input[name='bleaddress1']").val(),"para2":1})
             .done(function(string) {
-               $("#the-string").show();
-               $("#the-string input").val(string);
+               $("#block1").show();
+               $("#block1 input").val(string);
             });
            e.preventDefault();
          });
 
-         $("#replace-string").click(function(e) {
-           $.ajax({
-              type: "PUT",
-              url: "/generator",
-              data: {"another_string": $("#the-string").val()}
-           })
-           .done(function() {
-              alert("Replaced!");
-           });
+         $("#select-sql2").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress2']").val(),"para2":2})
+             .done(function(string) {
+               $("#block2").show();
+               $("#block2 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql2").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress2']").val(),"para2":2})
+            .done(function(string) {
+               $("#block2").show();
+               $("#block2 input").val(string);
+            });
            e.preventDefault();
          });
 
-         $("#delete-string").click(function(e) {
-           $.ajax({
-              type: "DELETE",
-              url: "/generator"
-           })
-           .done(function() {
-              $("#the-string").hide();
-           });
-           e.preventDefault();
+         $("#select-sql3").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress3']").val(),"para2":3})
+             .done(function(string) {
+               $("#block3").show();
+               $("#block3 input").val(string);
+              });
+            e.preventDefault();
          });
 
+         $("#insert-sql3").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress3']").val(),"para2":3})
+            .done(function(string) {
+               $("#block3").show();
+               $("#block3 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sql4").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress4']").val(),"para2":4})
+             .done(function(string) {
+               $("#block4").show();
+               $("#block4 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql4").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress4']").val(),"para2":4})
+            .done(function(string) {
+               $("#block4").show();
+               $("#block4 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sql5").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress5']").val(),"para2":5})
+             .done(function(string) {
+               $("#block5").show();
+               $("#block5 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql5").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress5']").val(),"para2":5})
+            .done(function(string) {
+               $("#block5").show();
+               $("#block5 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sql6").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress6']").val(),"para2":6})
+             .done(function(string) {
+               $("#block6").show();
+               $("#block6 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql6").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress6']").val(),"para2":6})
+            .done(function(string) {
+               $("#block6").show();
+               $("#block6 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sql7").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress7']").val(),"para2":7})
+             .done(function(string) {
+               $("#block7").show();
+               $("#block7 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql7").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress7']").val(),"para2":7})
+            .done(function(string) {
+               $("#block7").show();
+               $("#block7 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sql8").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress8']").val(),"para2":8})
+             .done(function(string) {
+               $("#block8").show();
+               $("#block8 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql8").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress8']").val(),"para2":8})
+            .done(function(string) {
+               $("#block8").show();
+               $("#block8 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sql9").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddress9']").val(),"para2":9})
+             .done(function(string) {
+               $("#block9").show();
+               $("#block9 input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sql9").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddress9']").val(),"para2":9})
+            .done(function(string) {
+               $("#block9").show();
+               $("#block9 input").val(string);
+            });
+           e.preventDefault();
+         });
+         $("#select-sqla").click(function(e) {
+             $.get("/generator", {"parametro": $("input[name='bleaddressa']").val(),"para2":10})
+             .done(function(string) {
+               $("#blocka").show();
+               $("#blocka input").val(string);
+              });
+            e.preventDefault();
+         });
+
+         $("#insert-sqla").click(function(e) {
+             $.post("/generator", {"parametro": $("input[name='bleaddressa']").val(),"para2":10})
+            .done(function(string) {
+               $("#blocka").show();
+               $("#blocka input").val(string);
+            });
+           e.preventDefault();
+         });
        });
      </script>
    </head>
    <body>
+        <div class="sixteen columns">
+        <h1 class="remove-bottom" style="margin-top: 40px">Welcome to SmartLink Control Panel</h1>
+        <h2>Python powered </h2>
+        <hr>
+        <h5> This a small test for the initial page setup. Using different approach
+techniques allows to provide simple and beautiful display. The current page is
+running on python, which allows to display all the info and controlling the
+bluetooth devices that the smart link will handle. </h5>
+
     <label for"regularInput">Bluetooth Address 1:</label>
-     <div id="the-string">
+     <div id="block1">
          <input type="text" name="bleaddress1" />
          <button id="select-sql">Read</button>
          <button id="insert-sql">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 2:</label>
+     <div id="block2">
+         <input type="text" name="bleaddress2" />
+         <button id="select-sql2">Read</button>
+         <button id="insert-sql2">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 3:</label>
+     <div id="block3">
+         <input type="text" name="bleaddress3" />
+         <button id="select-sql3">Read</button>
+         <button id="insert-sql3">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 4:</label>
+     <div id="block4">
+         <input type="text" name="bleaddress4" />
+         <button id="select-sql4">Read</button>
+         <button id="insert-sql4">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 5:</label>
+     <div id="block5">
+         <input type="text" name="bleaddress5" />
+         <button id="select-sql5">Read</button>
+         <button id="insert-sql5">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 6:</label>
+     <div id="block6">
+         <input type="text" name="bleaddress6" />
+         <button id="select-sql6">Read</button>
+         <button id="insert-sql6">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 7:</label>
+     <div id="block7">
+         <input type="text" name="bleaddress7" />
+         <button id="select-sql7">Read</button>
+         <button id="insert-sql7">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 8:</label>
+     <div id="block8">
+         <input type="text" name="bleaddress8" />
+         <button id="select-sql8">Read</button>
+         <button id="insert-sql8">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 9:</label>
+     <div id="block9">
+         <input type="text" name="bleaddress9" />
+         <button id="select-sql9">Read</button>
+         <button id="insert-sql9">Write</button>
+     </div>
+     <label for"regularInput">Bluetooth Address 10:</label>
+     <div id="blocka">
+         <input type="text" name="bleaddressa" />
+         <button id="select-sqla">Read</button>
+         <button id="insert-sqla">Write</button>
      </div>
    </body>
 </html>

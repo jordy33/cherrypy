@@ -16,20 +16,21 @@ class StringGeneratorWebService(object):
     exposed = True
 
     @cherrypy.tools.accept(media='text/plain')
-    def GET(self,parametro):
+    def GET(self,parametro,para2):
+        print ("Parametro 2:",para2)
         conn=sqlite3.connect(DB_STRING)
         c=conn.cursor()
-        c.execute("SELECT value FROM user_string WHERE session_id=?", [1])
+        c.execute("SELECT value FROM user_string WHERE session_id=?", [para2])
         nombre=c.fetchone()[0]
         return nombre
 
-    def POST(self, parametro):
-        some_string = parametro 
+    def POST(self, parametro,para2):
+        some_string = parametro
         with sqlite3.connect(DB_STRING) as c:
             c.execute("INSERT OR IGNORE INTO user_string VALUES (?, ?)",
-                      [1, some_string])
+                      [para2, some_string])
             c.execute("UPDATE user_string SET value=? WHERE session_id=?",
-                      [some_string, 1])
+                      [some_string, para2])
         return some_string 
 
     def PUT(self, another_string):
