@@ -10,14 +10,23 @@ DB_STRING = "my.db"
 class StringGenerator(object):
    @cherrypy.expose
    def index(self):
-       return open('base.html')
+       address=[]
+       address.clear()
+       conn=sqlite3.connect(DB_STRING)
+       c=conn.cursor()
+       for x in range (1,11):
+           c.execute("SELECT value FROM user_string WHERE session_id=?", [x])
+           address.append(c.fetchone()[0])
+       html= open('base.html')
+       data=html.read()
+       data=data.replace("{0}",address[0]).replace("{1}",address[1]).replace("{2}",address[2]).replace("{3}",address[3]).replace("{4}",address[4]).replace("{5}",address[5]).replace("{6}",address[6]).replace("{7}",address[7]).replace("{8}",address[8]).replace("{9}",address[9])
+       return data 
 
 class StringGeneratorWebService(object):
     exposed = True
 
     @cherrypy.tools.accept(media='text/plain')
     def GET(self,parametro,para2):
-        print ("Parametro 2:",para2)
         conn=sqlite3.connect(DB_STRING)
         c=conn.cursor()
         c.execute("SELECT value FROM user_string WHERE session_id=?", [para2])
@@ -81,9 +90,10 @@ if __name__ == '__main__':
 
     cherrypy.engine.subscribe('start', setup_database)
     cherrypy.engine.subscribe('stop', cleanup_database)
-
+    cherrypy.log.access_file = None
     webapp = StringGenerator()
     webapp.generator = StringGeneratorWebService()
-    cherrypy.config.update({'server.socket_host': '0.0.0.0'})
+    cherrypy.config.update({ "environment": "embedded" })
+    cherrypy.config.update({'server.socket_host': '0.0.0.0','server.socket_port': 80}) 
     cherrypy.quickstart(webapp, '/', conf)
 
